@@ -11,7 +11,10 @@ func main() {
 	var firstVar func() = firstFunc
 	var secondVar func() = secondFunc
 
-	//ideally these bytes will be shellcode/module code
+	//ideally these bytes will be the address of our shellcode/module code
+        //Setting these bytes to 65 (A in decimal) causes a crash with rip and
+        //Rax showing 0x41414141 so we can control where the execution is 
+        //happening. Just gotta figure out how to load valid code...
 	var testBytes []byte = []byte{40, 96, 0, 0, 192, 0, 0, 0}
 
 	//get pointer to bytes and functions
